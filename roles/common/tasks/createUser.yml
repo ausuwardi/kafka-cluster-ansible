@@ -5,6 +5,7 @@
     name: "{{  kafkaGroup }}"
     gid: "{{ kafkaGroupId }}"
     state: present
+  check_mode: no
 
 - name: creating kafka user
   user:
@@ -12,3 +13,10 @@
     comment: kafka Default User
     uid: "{{ kafkaUserId }}"
     group: "{{ kafkaGroup }}"
+    shell: "/usr/bin/bash"
+  check_mode: no
+
+- name: update shell
+  user:
+    name: "{{ kafkaUser }}"
+    shell: "/usr/bin/bash"

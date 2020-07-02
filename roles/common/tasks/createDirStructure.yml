@@ -4,6 +4,7 @@
   file:
     path: "{{ kafkaInstallDir }}"
     state: directory
+  check_mode: no
 
 - name: Creating kafka directories
   file:
@@ -15,3 +16,4 @@
   loop:
     - "{{ kafkaDataDir }}"
     - "{{ kafkaLogDir }}"
+  check_mode: no
