@@ -3,13 +3,14 @@
 - hosts: clusterNodes:clusterAddNodes:kafka-mirror-maker
   gather_facts: true
   pre_tasks:
-    - name: install gcc and python-devel
-      yum:
+    - name: install gcc, python3-dev, and pip3
+      apt:
         name: "{{ item }}"
         state: present
       loop:
         - gcc
-        - python3-devel
+        - python3-dev
+        - python3-pip
 
     - name: copy jmxquery / psutil tar files
       copy:
